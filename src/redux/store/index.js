@@ -12,11 +12,6 @@ const preloadedState = {
       id: 2,
       text: 'Context is killing redux',
       completed: true
-    },
-    {
-      id: 3,
-      text: 'My todo',
-      completed: true
     }
   ]
 }

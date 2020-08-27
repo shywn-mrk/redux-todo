@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Redux Todo</a>
+      <Link class="navbar-brand" to="/">Redux Todo</Link>
       <button
         class="navbar-toggler"
         type="button"
@@ -20,12 +20,22 @@ const Navbar = () => {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <NavLink className="nav-link" to='/'>
+            <NavLink
+              exact
+              activeClassName="active"
+              className="nav-link"
+              to='/'
+            >
               Home
             </NavLink>
           </li>
           <li class="nav-item">
-            <NavLink className="nav-link" to='/about'>
+            <NavLink
+              exact
+              activeClassName="active"
+              className="nav-link"
+              to='/about'
+            >
               About
             </NavLink>
           </li>

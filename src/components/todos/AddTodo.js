@@ -2,15 +2,12 @@ import React, { useState } from 'react'
 
 import { v4 as uuid } from 'uuid'
 
-import { ADD_TODO } from '../../redux/types/todos'
-
 import { addTodoAction } from '../../redux/actions/todos'
 import { useDispatch } from 'react-redux'
 
 const AddTodo = () => {
   const [todo, setTodo] = useState('')
 
-  // const addTodo = useActions(todo => addTodoAction(todo))
   const dispatch = useDispatch()
 
   const onChange = event => {
@@ -26,7 +23,7 @@ const AddTodo = () => {
       completed: false
     }
 
-    dispatch({type: ADD_TODO, payload: newTodo})
+    dispatch(addTodoAction(newTodo))
 
     setTodo('')
   }
@@ -42,6 +39,7 @@ const AddTodo = () => {
               name="todo"
               placeholder="Add todo"
               value={todo}
+              required
               onChange={onChange}
             />
             <input

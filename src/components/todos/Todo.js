@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
-import { TOGGLE_TODO, DELETE_TODO, UPDATE_TODO } from '../../redux/types/todos'
+import {
+  toggleTodoAction,
+  updateTodoAction,
+  deleteTodoAction
+} from '../../redux/actions/todos'
 
 import { useDispatch } from 'react-redux'
 
@@ -15,11 +19,11 @@ const Todo = ({ todo }) => {
   const dispatch = useDispatch()
 
   const toggleTodo = () => {
-    dispatch({ type: TOGGLE_TODO, payload: todo.id })
+    dispatch(toggleTodoAction(todo.id))
   }
 
   const deleteTodo = () => {
-    dispatch({ type: DELETE_TODO, payload: todo.id })
+    dispatch(deleteTodoAction(todo.id))
   }
 
   const updateTodo = () => {
@@ -28,7 +32,7 @@ const Todo = ({ todo }) => {
       text: newTodo
     }
 
-    dispatch({ type: UPDATE_TODO, payload: updatedTodo })
+    dispatch(updateTodoAction(updatedTodo))
 
     setNewTodo('')
   }
